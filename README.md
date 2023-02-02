@@ -6,6 +6,7 @@
 
 ## Purpose and Contraints
 
+- This is an admin extension
 - This extension is for small projects, games, applications 
 - This extensions is not meant for production or for high volume applications
 - No Cloudflare. No separate domain, uses the current LNBits domain only.
