@@ -15,7 +15,7 @@
 
 ## Usage Notes
 
-IMPORTANT: Edit your .env to be the following: 
+**IMPORTANT: Edit your .env to be the following:**
 
 ```
 # Disable extensions for all users, use "all" to disable all extensions
