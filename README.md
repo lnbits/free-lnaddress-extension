@@ -13,6 +13,17 @@
 - Users can add, delete or modify their LN Address. 
 - LNaddress must be unique name per wallet that follows naming specification
 
+## Usage Notes
+
+IMPORTANT: Edit your .env to be the following: 
+
+```
+# Disable extensions for all users, use "all" to disable all extensions
+# lnaddress (paid lightning address extension) and lnaddy (free lightning address extension)
+# cannot be used at the same time. To avoid conflict, one or the other must be disabled. 
+LNBITS_DISABLED_EXTENSIONS="amilk, lnaddress"
+```
+
 
 ## Create a static QR code people can use to pay over Lightning Network
 
