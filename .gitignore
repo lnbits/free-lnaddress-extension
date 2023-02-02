@@ -1,0 +1,47 @@
+.DS_Store
+._*
+
+__pycache__
+*.py[cod]
+*$py.class
+.mypy_cache
+.vscode
+*-lock.json
+
+*.egg
+*.egg-info
+.coverage
+.pytest_cache
+.webassets-cache
+htmlcov
+test-reports
+tests/data/*.sqlite3
+
+*.swo
+*.swp
+*.pyo
+*.pyc
+*.env
+.env
+.venv
+venv
+
+data
+*.sqlite3
+.pyre*
+
+__bundle__
+
+coverage.xml
+node_modules
+lnbits/static/bundle.*
+docker
+
+# Nix
+*result*
+
+# fly.io
+fly.toml
+
+# Ignore extensions (post installable extension PR)
+upgrades/
