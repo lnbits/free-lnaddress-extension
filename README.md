@@ -1,6 +1,6 @@
 # Free Lightning Address extends LNURLp
 
-- Basically extends Lnurlp functionality with LN Addresses
+- Basically extends Lnurlp functionality with [LN Addresses](https://lightningaddress.com/)
 - See also [LUD-16: Paying to static internet identifiers.](https://github.com/lnurl/luds/blob/luds/16.md)
 - The `<username>` is limited to `a-z0-9-_.`.  Please note that this is way more strict than common email addresses as it allows fewer symbols and only lowercase characters.
 
