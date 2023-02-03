@@ -49,6 +49,8 @@ LNURL is a range of lightning-network standards that allow us to use lightning-n
    - Success URL, will send back a clickable link to the user. Access to some hidden content, or a download link
 
 2. Use the shareable link or view the LNURLp you just created
-   ![LNURLp](https://i.imgur.com/C8s1P0Q.jpg)
+   ![demo](https://user-images.githubusercontent.com/73979971/216545379-9094141f-7fad-4b92-ab80-6901e8934d03.png)
+
+   
    - you can now open your LNURLp and copy the LNURL, get the shareable link or print it\
      ![view lnurlp](https://i.imgur.com/4n41S7T.jpg)
