@@ -22,7 +22,7 @@ async def wait_for_paid_invoices():
 
 
 async def on_invoice_paid(payment: Payment):
-    if payment.extra.get("tag") != "lnurlp":
+    if payment.extra.get("tag") != "lnaddy":
         return
 
     if payment.extra.get("wh_status"):
