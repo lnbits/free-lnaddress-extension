@@ -4,11 +4,11 @@ from urllib.parse import urlparse
 
 import httpx
 from fastapi import Query, Request
-from lnurl import LnurlErrorResponse, LnurlPayResponse
+from lnurl import LnurlErrorResponse, LnurlPayActionResponse, LnurlPayResponse
 from loguru import logger
 from starlette.exceptions import HTTPException
 
-# from lnbits.core.services import create_invoice
+from lnbits.core.services import create_invoice
 from lnbits.utils.exchange_rates import get_fiat_rate_satoshis
 
 from . import lnaddy_ext
@@ -86,31 +86,26 @@ async def api_lnurl_callback(request: Request, link_id, amount: int = Query(...)
     domain = urlparse(str(request.url)).netloc
     assert domain
 
-    base_url = "https://" + domain
+    unhashed_description = await address.lnurlpay_metadata(domain=domain)
+    unhashed_description = unhashed_description.encode()
+    payment_hash, payment_request = await create_invoice(
+        wallet_id=address.wallet,
+        amount=int(amount / 1000),
+        memo=address.description,
+        unhashed_description=unhashed_description,
+        extra={
+            "tag": "lnaddy",
+            "link": address.id,
+            "extra": {"tag": f"Payment to {address.lnaddress}@{domain}"},
+        },
+    )
 
-    async with httpx.AsyncClient() as client:
-        try:
-            call = await client.post(
-                base_url + "/api/v1/payments",
-                headers={
-                    "X-Api-Key": address.wallet_key,
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "out": False,
-                    "amount": int(amount / 1000),
-                    "description_hash": (
-                        await address.lnurlpay_metadata(domain=domain)
-                    ).h,
-                    "extra": {"tag": f"Payment to {address.lnaddress}@{domain}"},
-                },
-                timeout=40,
-            )
+    success_action = address.success_action(payment_hash)
+    if success_action:
+        resp = LnurlPayActionResponse(
+            pr=payment_request, success_action=success_action, routes=[]
+        )
+    else:
+        resp = LnurlPayActionResponse(pr=payment_request, routes=[])
 
-            r = call.json()
-        except Exception as e:
-            logger.error("Exception thrown: " + str(e))
-            return LnurlErrorResponse(reason="ERROR")
-
-    resp = {"pr": r["payment_request"], "routes": []}
-    return resp
+    return resp.dict()
