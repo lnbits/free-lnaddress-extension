@@ -1,5 +1,6 @@
 import json
 from http import HTTPStatus
+from urllib.parse import urlparse
 
 from fastapi import Depends, Query, Request
 from lnurl.exceptions import InvalidUrl as LnurlInvalidUrl  # type: ignore
@@ -18,6 +19,12 @@ from .crud import (
     update_pay_link,
 )
 from .models import CreatePayLinkData
+from .lnurl import  lnaddy_lnurl_response
+
+@core_app.get("/.well-known/lnurlp/{username}")
+async def lnaddress(username: str, request: Request):
+    domain = urlparse(str(request.url)).netloc
+    return await lnaddy_lnurl_response(username, domain, request)
 
 
 @lnaddy_ext.get("/api/v1/currencies")
