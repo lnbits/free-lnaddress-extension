@@ -18,13 +18,12 @@ from .crud import (
     update_pay_link,
 )
 from .models import CreatePayLinkData
-from .lnurl import lnurl_response
-
+from .lnurl import  lnaddy_lnurl_response
 
 @core_app.get("/.well-known/lnurlp/{username}")
 async def lnaddress(username: str, request: Request):
     domain = urlparse(str(request.url)).netloc
-    return await lnurl_response(username, domain, request)
+    return await lnaddy_lnurl_response(username, domain, request)
 
 
 @lnaddy_ext.get("/api/v1/currencies")
