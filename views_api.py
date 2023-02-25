@@ -1,5 +1,6 @@
 import json
 from http import HTTPStatus
+from urllib.parse import urlparse
 
 from fastapi import Depends, Query, Request
 from lnurl.exceptions import InvalidUrl as LnurlInvalidUrl  # type: ignore
