@@ -1,7 +1,7 @@
 {
   "repos": [
     {
-      "id": "freelnaddress",
+      "id": "free-lnaddress-extension",
       "organisation": "lnbits",
       "repository": "free-lnaddress-extension"
     }
