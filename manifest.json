@@ -2,7 +2,7 @@
 {
     "repos": [
         {
-            "id": "freelnaddress",
+            "id": "lnaddy",
             "organisation": "lnbits",
             "repository": "free-lnaddress-extension"
         }
