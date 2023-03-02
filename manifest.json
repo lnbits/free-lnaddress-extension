@@ -1,9 +1,10 @@
+
 {
-  "repos": [
-    {
-      "id": "free-lnaddress-extension",
-      "organisation": "lnbits",
-      "repository": "free-lnaddress-extension"
-    }
-  ]
+    "repos": [
+        {
+            "id": "freelnaddress",
+            "organisation": "lnbits",
+            "repository": "free-lnaddress-extension"
+        }
+    ]
 }
