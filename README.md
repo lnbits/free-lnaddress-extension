@@ -1,5 +1,7 @@
 # Free Lightning Address extends LNURLp
 
+# CAVEAT: Use this extension if your lnbits is older than February 2023, and be sure to read the release notes
+
 - Basically extends Lnurlp functionality with [LN Addresses](https://lightningaddress.com/)
 - See also [LUD-16: Paying to static internet identifiers.](https://github.com/lnurl/luds/blob/luds/16.md)
 - The `<username>` is limited to `a-z0-9-_.`.  Please note that this is way more strict than common email addresses as it allows fewer symbols and only lowercase characters.
