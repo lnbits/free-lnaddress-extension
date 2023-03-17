@@ -1,6 +1,7 @@
 # Free Lightning Address extends LNURLp
 
 # CAVEAT: Use this extension if your lnbits is older than February 2023, and be sure to read the release notes
+# If you have the latest Lnbits, just use the new LNURLp extension
 
 - Basically extends Lnurlp functionality with [LN Addresses](https://lightningaddress.com/)
 - See also [LUD-16: Paying to static internet identifiers.](https://github.com/lnurl/luds/blob/luds/16.md)
